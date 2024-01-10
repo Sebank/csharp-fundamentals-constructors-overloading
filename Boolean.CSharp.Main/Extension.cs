@@ -40,20 +40,13 @@ namespace Boolean.CSharp.Main
         //TODO: 6. multiply, which accepts a string and an int, and returns a string containing the provided string as many times as the provided int separated by a comma. E.g. multiply("Hello", 3) -> "Hello,Hello,Hello"
         public string multiply( string a, int b)
         {
-            return string.Join(",", Enumerable.Repeat(a, b));
+            return string.Join(',', Enumerable.Repeat(a, b));
         }
 
         //TODO: 7. multiply, which accepts an array of Strings that each contain a number, and an int. The method should return an array of ints that contain the value of multiplying each String number by the provided int E.g. multiply(["2", "7", "3"], 3) -> [6, 21, 9]
         public int[] multiply(string[] numbers, int a)
         {
-            int[] value = new int[numbers.Length];
-
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                value[i] = Int32.Parse(numbers[i]) * a;
-            }
-
-            return value;
+            return numbers.Select(num => Int32.Parse(num) * a ).ToArray();
 
         }
     }
